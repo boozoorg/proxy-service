@@ -24,7 +24,7 @@ func TCP(target string) http.Handler {
 
 		r.Write(d)
 
-		c := make(chan error, 2)
+		var c chan bool
 		p := func(w io.Writer, r io.Reader) {
 			io.Copy(w, r)
 		}
